@@ -34,14 +34,31 @@ A backend RESTful API service simulating a **digital wallet** system. This proje
 
 All protected routes require HTTP Basic Auth:
 
-```http
-Authorization: Basic base64(username:password)
-```
+Here’s how to do it for endpoints like /bal, /fund, /pay, etc.
 
-Example using `curl`:
-```bash
-curl -u raj:secret123 http://localhost:5000/bal
-```
+🔐 Step-by-Step: Set up Basic Auth
+Open Postman
+
+Enter the API URL, e.g.:
+
+http://localhost:5000/bal
+or for live deployed version:
+
+https://digital-wallet-api.onrender.com/bal
+Switch to the Authorization tab
+
+Under Type, select Basic Auth
+
+Enter your:
+
+Username: (e.g., raj)
+
+Password: (e.g., secret123)
+
+Postman will automatically encode it into:
+
+
+Authorization: Basic <base64(username:password)>
 
 ---
 
