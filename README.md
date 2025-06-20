@@ -37,6 +37,7 @@ All protected routes require HTTP Basic Auth:
 Here’s how to do it for endpoints like /bal, /fund, /pay, etc.
 
 🔐 Step-by-Step: Set up Basic Auth
+
 1.Open Postman
 
 2.Enter the API URL, e.g.:
