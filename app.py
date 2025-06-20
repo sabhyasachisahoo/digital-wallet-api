@@ -39,18 +39,25 @@ def authenticate(f):
         encoded_credentials = auth.split(' ')[1]
         username, password = base64.b64decode(encoded_credentials).decode().split(':')
         user = User.query.filter_by(username=username).first()
+
+        # NEW: bcrypt check
         if not user or not bcrypt.checkpw(password.encode(), user.password.encode()):
             return jsonify({'error': 'Unauthorized'}), 401
+        
         request.user = user
         return f(*args, **kwargs)
     return decorated
+
 
 @app.route('/register', methods=['POST'])
 def register():
     data = request.json
     if User.query.filter_by(username=data['username']).first():
         return jsonify({'error': 'User exists'}), 400
+    
+    # NEW: hash password with bcrypt
     hashed_pw = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()).decode()
+
     new_user = User(username=data['username'], password=hashed_pw)
     db.session.add(new_user)
     db.session.commit()
