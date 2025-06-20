@@ -37,29 +37,30 @@ All protected routes require HTTP Basic Auth:
 Here’s how to do it for endpoints like /bal, /fund, /pay, etc.
 
 🔐 Step-by-Step: Set up Basic Auth
-Open Postman
+1.Open Postman
 
-Enter the API URL, e.g.:
-
+2.Enter the API URL, e.g.:
+```
 http://localhost:5000/bal
+```
 or for live deployed version:
-
+```
 https://digital-wallet-api.onrender.com/bal
-Switch to the Authorization tab
+```
+3.Switch to the Authorization tab
 
-Under Type, select Basic Auth
+4.Under Type, select Basic Auth
 
-Enter your:
-
+5.Enter your:
+```
 Username: (e.g., raj)
-
 Password: (e.g., secret123)
+```
+6.Postman will automatically encode it into:
 
-Postman will automatically encode it into:
-
-
+```
 Authorization: Basic <base64(username:password)>
-
+```
 ---
 
 ## 📖 API Endpoints
