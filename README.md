@@ -3,7 +3,7 @@
 
 A backend RESTful API service simulating a **digital wallet** system. This project includes user authentication, wallet funding, peer payments, product purchase, and balance conversion via a live currency API.
 
-🔗 **Live Deployment**: [https://digital-wallet-api.onrender.com](https://digital-wallet-api.onrender.com)
+🔗 **Live Deployment**: [https://digital-wallet-api-vbv7.onrender.com/](https://digital-wallet-api-vbv7.onrender.com/)
 
 ---
 
