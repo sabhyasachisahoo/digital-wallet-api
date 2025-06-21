@@ -1,14 +1,18 @@
 import base64
 import pytest
-from app import app, db, User
+from app import create_app, db
+from app.models import User
 
 @pytest.fixture
 def client():
+    # Set up app context and test client
+    app = create_app()
     with app.app_context():
-        db.drop_all()
+        db.drop_all()       # Reset DB before each test
         db.create_all()
         test_client = app.test_client()
-        yield test_client
+        yield test_client   # Yield for testing
+        db.session.remove() # Cleanup
 
 def auth_header(username, password):
     token = base64.b64encode(f'{username}:{password}'.encode()).decode()
