@@ -3,7 +3,7 @@ services:
     name: digital-wallet-api
     env: python
     buildCommand: ""
-    startCommand: python app.py
+    startCommand: python run.py
     envVars:
       - key: FLASK_ENV
         value: production
